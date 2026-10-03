@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Olabanji Badru — Cloud & DevOps Engineer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=DM+Serif+Display&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy:    #0a1628;
+    --navy2:   #0f1f3d;
+    --blue:    #1a3a6b;
+    --accent:  #4a90d9;
+    --accent2: #6db3f2;
+    --text:    #e8edf5;
+    --muted:   #8a9bb5;
+    --border:  rgba(74,144,217,0.18);
+    --card:    rgba(15,31,61,0.7);
+  }
+
+  html, body { height: 100%; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--navy);
+    color: var(--text);
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.2rem 4rem;
+    background: rgba(10,22,40,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-name {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.15rem;
+    color: var(--text);
+    letter-spacing: 0.01em;
+  }
+
+  .nav-links { display: flex; gap: 2rem; }
+  .nav-links a {
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 0.875rem;
+    font-weight: 500;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--accent2); }
+
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 6rem 2rem 4rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -20%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(74,144,217,0.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-inner { max-width: 720px; position: relative; }
+
+  .certs {
+    display: flex;
+    gap: 0.75rem;
+    justify-content: center;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+  }
+
+  .cert-badge {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    padding: 0.35rem 0.9rem;
+    border-radius: 2rem;
+    border: 1px solid var(--border);
+    color: var(--accent2);
+    background: rgba(74,144,217,0.08);
+  }
+
+  .hero h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(2.4rem, 5vw, 3.6rem);
+    line-height: 1.15;
+    color: var(--text);
+    margin-bottom: 1.25rem;
+  }
+
+  .hero h1 span { color: var(--accent2); }
+
+  .hero-sub {
+    font-size: 1.05rem;
+    color: var(--muted);
+    max-width: 520px;
+    margin: 0 auto 3rem;
+    font-weight: 300;
+  }
+
+  .portfolio-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    max-width: 640px;
+    margin: 0 auto 3rem;
+  }
+
+  .p-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 2rem 1.5rem;
+    text-decoration: none;
+    color: var(--text);
+    transition: border-color 0.2s, transform 0.2s, background 0.2s;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .p-card:hover {
+    border-color: var(--accent);
+    background: rgba(74,144,217,0.1);
+    transform: translateY(-3px);
+  }
+
+  .p-card-icon { font-size: 1.8rem; margin-bottom: 0.25rem; }
+
+  .p-card h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text);
+  }
+
+  .p-card p {
+    font-size: 0.8rem;
+    color: var(--muted);
+    line-height: 1.5;
+  }
+
+  .p-card-arrow {
+    margin-top: auto;
+    font-size: 0.8rem;
+    color: var(--accent2);
+    font-weight: 500;
+  }
+
+  .social-links {
+    display: flex;
+    gap: 1.25rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .social-link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    transition: color 0.2s, border-color 0.2s;
+  }
+
+  .social-link:hover { color: var(--accent2); border-color: var(--accent); }
+
+  .about {
+    padding: 6rem 2rem;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .section-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    color: var(--accent);
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+  }
+
+  .about h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(1.8rem, 3vw, 2.4rem);
+    margin-bottom: 1.5rem;
+    color: var(--text);
+  }
+
+  .about p {
+    color: var(--muted);
+    font-size: 0.975rem;
+    max-width: 65ch;
+    margin-bottom: 1rem;
+    font-weight: 300;
+  }
+
+  .skills {
+    padding: 4rem 2rem 6rem;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .skills h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(1.8rem, 3vw, 2.4rem);
+    margin-bottom: 2rem;
+    color: var(--text);
+  }
+
+  .skill-groups {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .skill-group {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1.5rem;
+  }
+
+  .skill-group h4 {
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    color: var(--accent2);
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+  }
+
+  .skill-group ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .skill-group li {
+    font-size: 0.875rem;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .skill-group li::before {
+    content: '';
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: var(--accent);
+    flex-shrink: 0;
+  }
+
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 2rem;
+    text-align: center;
+    color: var(--muted);
+    font-size: 0.8rem;
+  }
+
+  @media (max-width: 600px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { gap: 1rem; }
+    .portfolio-cards { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <span class="nav-name">Olabanji Badru</span>
+  <div class="nav-links">
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="https://olabadmanji.github.io/cloud-portfolio">Cloud</a>
+    <a href="https://olabadmanji.github.io/devops-portfolio">DevOps</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div class="certs">
+      <span class="cert-badge">AWS SAA-C03</span>
+      <span class="cert-badge">AWS Cloud Practitioner</span>
+    </div>
+    <h1>Cloud & DevOps<br><span>Engineer</span></h1>
+    <p class="hero-sub">Building scalable cloud infrastructure and automated deployment pipelines on AWS.</p>
+
+    <div class="portfolio-cards">
+      <a href="https://olabadmanji.github.io/cloud-portfolio" class="p-card">
+        <div class="p-card-icon">☁️</div>
+        <h3>Cloud Portfolio</h3>
+        <p>AWS architecture, data pipelines, serverless, and cloud infrastructure projects.</p>
+        <span class="p-card-arrow">View projects →</span>
+      </a>
+      <a href="https://olabadmanji.github.io/devops-portfolio" class="p-card">
+        <div class="p-card-icon">⚙️</div>
+        <h3>DevOps Portfolio</h3>
+        <p>CI/CD pipelines, Terraform, Ansible, Docker, Kubernetes, and monitoring projects.</p>
+        <span class="p-card-arrow">View projects →</span>
+      </a>
+    </div>
+
+    <div class="social-links">
+      <a href="YOUR_LINKEDIN_URL" class="social-link">LinkedIn</a>
+      <a href="https://github.com/Olabadmanji" class="social-link">GitHub</a>
+      <a href="mailto:YOUR_EMAIL" class="social-link">Email</a>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <p class="section-label">About</p>
+  <h2>Building for the cloud,<br>end to end.</h2>
+  <p>I'm a Cloud and DevOps Engineer with AWS certifications at both the practitioner and solutions architect level. I design and build cloud infrastructure on AWS, automate deployments with modern DevOps tooling, and create data pipelines that turn raw events into business insight.</p>
+  <p>Currently expanding my expertise across infrastructure as code, container orchestration, and observability — building production-grade projects that demonstrate real-world engineering patterns.</p>
+</section>
+
+<section class="skills" id="skills">
+  <p class="section-label">Skills</p>
+  <h2>What I work with.</h2>
+  <div class="skill-groups">
+    <div class="skill-group">
+      <h4>Cloud</h4>
+      <ul>
+        <li>AWS — EC2, S3, RDS, VPC</li>
+        <li>Lambda & API Gateway</li>
+        <li>ECS, ECR, EKS</li>
+        <li>Route 53, CloudFront</li>
+        <li>Kinesis, Glue, Athena</li>
+      </ul>
+    </div>
+    <div class="skill-group">
+      <h4>DevOps</h4>
+      <ul>
+        <li>Terraform</li>
+        <li>Ansible</li>
+        <li>Docker & Docker Compose</li>
+        <li>GitHub Actions</li>
+        <li>Jenkins</li>
+      </ul>
+    </div>
+    <div class="skill-group">
+      <h4>Observability</h4>
+      <ul>
+        <li>Prometheus</li>
+        <li>Grafana</li>
+        <li>CloudWatch</li>
+        <li>Alertmanager</li>
+      </ul>
+    </div>
+    <div class="skill-group">
+      <h4>Languages</h4>
+      <ul>
+        <li>Python</li>
+        <li>Bash</li>
+        <li>YAML</li>
+        <li>HCL (Terraform)</li>
+        <li>SQL</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>Olabanji Badru &nbsp;·&nbsp; Cloud & DevOps Engineer &nbsp;·&nbsp; AWS Certified</p>
+</footer>
+
+</body>
+</html>
