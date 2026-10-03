@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../cloud-portfolio"
+		},
+		{
+			"path": "../devops-portfolio"
+		}
+	],
+	"settings": {}
+}
